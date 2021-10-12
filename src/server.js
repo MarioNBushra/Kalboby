@@ -11,7 +11,7 @@ const puppeteer = require("puppeteer");
 app.use(express.urlencoded({ extended: true }));
 
 
-const port = process.end.PORT || 5050
+const port = process.env.PORT || 5050
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "./public/");
 const viewsPath = path.join(__dirname, "./templates/views");
