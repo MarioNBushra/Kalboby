@@ -10,6 +10,8 @@ const puppeteer = require("puppeteer");
 
 app.use(express.urlencoded({ extended: true }));
 
+
+const port = process.end.PORT || 5050
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "./public/");
 const viewsPath = path.join(__dirname, "./templates/views");
@@ -49,6 +51,6 @@ app.get("/home", async(req, res) => {
   res.render("page")
 })
 
-app.listen(5050, () => {
+app.listen(port, () => {
   console.log("http://localhost:5050/");
 });
