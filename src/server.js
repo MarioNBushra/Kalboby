@@ -48,11 +48,17 @@ app.get("/client/add", (req, res) => {
 });
 
 app.get("/" , async(req, res) => {
-  res.send("Hello ")
+  res.redirect("/kalboby/signin")
 })
 
 app.get("/home", async(req, res) => {
   res.render("page")
+})
+
+app.get("/kalboby/signin", async (req, res) => {
+  res.render("signin", {
+    layout: false
+  })
 })
 
 app.listen(port, () => {
