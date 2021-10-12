@@ -1,0 +1,113 @@
+<html>
+
+  <head>
+    <title>{{title}}</title>
+
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <div class="row" style="margin-top: 10px">
+        <div class="col-md-3">
+          <h4>بيانات العميل</h4>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 10px">
+        <div class="col-md-6">
+          <input
+            type="text"
+            placeholder="اسم العميل"
+            class="form-control"
+            id="exampleInputEmail1"
+            style="
+              direction: rtl;
+              width: 300px;
+            "
+          />
+          <br />
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <input
+            type="text"
+            placeholder="رقم التليفون (اختياري )"
+            class="form-control"
+            id="exampleInputEmail1"
+            style="
+              direction: rtl;
+              width: 300px
+            "
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <br />
+          <h4>المنتجات</h4>
+          <br />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+
+          <input
+            id="product_name"
+            type="text"
+            placeholder="اسم المنتج"
+            class="form-control"
+            style="
+              direction: rtl;
+              margin-bottom: 20px;
+              display: inline;
+            "
+          />
+          <br />
+        </div>
+        <div class="col-md-4">
+          <input
+            id="product_price"
+            type="number"
+            placeholder="السعر"
+            class="form-control"
+            style="
+              direction: rtl;
+              margin-bottom: 20px;
+              display: inline;
+              
+            "
+          />
+
+        </div>
+        <div class="col-md-1">
+          <button
+            type="button"
+            id="add_product"
+            onclick="add_inputs()"
+            class="btn btn-primary"
+            style="margin-bottom: 6px;"
+          >
+
+            <i class="fas fa-plus"></i>
+
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <br />
+          <button
+            type="button"
+            onclick="print_values()"
+            class="btn btn-primary"
+          >حفظ</button>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
