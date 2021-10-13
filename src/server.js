@@ -55,7 +55,7 @@ app.get("/client/add", (req, res) => {
 
 
 app.get("/home", async(req, res) => {
-  res.render("page")
+  res.render("home")
 })
 
 app.get("/kalboby/signin", async (req, res) => {
