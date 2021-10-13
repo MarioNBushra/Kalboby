@@ -42,14 +42,17 @@ app.use(express.json());
 //   });
 // });
 
+
+app.get("/" , async(req, res) => {
+  res.redirect("/kalboby/signin")
+})
+
 app.get("/client/add", (req, res) => {
   res.render("add_client");
 
 });
 
-app.get("/" , async(req, res) => {
-  res.redirect("/kalboby/signin")
-})
+
 
 app.get("/home", async(req, res) => {
   res.render("page")

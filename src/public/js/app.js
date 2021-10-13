@@ -3,10 +3,25 @@ console.log("Welcome to script");
 
 const natured_yes = document.getElementById("yes")
 const natured_no = document.getElementById("no")
-
 const natured_date = document.getElementById("natured_date")
+let regDate = document.getElementById("regDate")
 
-console.log(natured_yes.checked);
+//vaccine
+const rabiesCheck = document.getElementById("rabies") 
+const combinedCheck = document.getElementById("combined") 
+const dewormingCheck = document.getElementById("deworming") 
+
+const rabiesDate = document.getElementById("rabiesDate") 
+const combinedDate = document.getElementById("combinedDate") 
+const dewormingDate = document.getElementById("dewormingDate") 
+
+
+
+
+
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+regDate.value = date
 
 const checked = () => {
     console.log("Welcome from fn");
@@ -16,7 +31,6 @@ const checked = () => {
     }    
 }
 
-
 const unChecked = () => {
     console.log("Welcome from fn");
     
@@ -24,9 +38,64 @@ const unChecked = () => {
         console.log("UNChecked");
         natured_date.hidden = true
     }
-    
-    
 }
+
+
+const rabiesChecked = () => {
+    
+    if(rabiesCheck.checked === true){
+        console.log("Rabies Checked");
+        rabiesDate.hidden = false
+    }else{
+        rabiesDate.hidden = true
+    }
+    // }if(combinedCheck === true){
+    //     console.log("combined checked");
+    //     combinedDate.hidden = false
+    // } if(dewormingCheck === true){
+    //     dewormingDate.hidden = false
+    // }else{
+    //     console.log("Ma4y");
+    // }
+}
+
+const combinedChecked = () => {
+    
+    // if(rabiesCheck.checked === true){
+    //     console.log("Rabies Checked");
+    //     rabiesDate.hidden = false
+    // }
+    if(combinedCheck.checked === true){
+        console.log("combined checked");
+        combinedDate.hidden = false
+    }else{
+        combinedDate.hidden = true
+  
+    }
+    // if(dewormingCheck === true){
+    //     dewormingDate.hidden = false
+    // }else{
+    //     console.log("Ma4y");
+    // }
+}
+
+const dewormingChecked = () => {
+    
+    // if(rabiesCheck.checked === true){
+    //     console.log("Rabies Checked");
+    //     rabiesDate.hidden = false
+    // }
+    // if(combinedCheck === true){
+    //     console.log("combined checked");
+    //     combinedDate.hidden = false
+    // } 
+    if(dewormingCheck.checked === true){
+        dewormingDate.hidden = false
+    }else{
+        dewormingDate.hidden = true
+    }
+}
+
 
 
 
