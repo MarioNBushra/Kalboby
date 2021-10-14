@@ -78,7 +78,7 @@
     </div>
 
     {{! Pet's Data }}
-    <div class="row row-cols-2">
+    <div class="row row-cols-3">
       {{! Pets Name }}
       <div class="col">
 
@@ -95,12 +95,25 @@
       {{! Pets Age }}
       <div class="col">
         <div class="mb-3">
-          <label for="age" class="form-label font">Age</label>
+          <label for="age" class="form-label font">Pets Age</label>
           <input
             type="text"
             class="form-control"
             id="age"
             placeholder="Pets Age"
+          />
+        </div>
+      </div>
+
+      {{!-- Pets Weight --}}
+      <div class="col">
+        <div class="mb-3">
+          <label for="weight" class="form-label font">Pets Weight</label>
+          <input
+            type="Number"
+            class="form-control"
+            id="weight"
+            placeholder="Body Weight (KG)"
           />
         </div>
       </div>
