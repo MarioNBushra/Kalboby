@@ -4,13 +4,14 @@
     <title>Kalboby - Home</title>
   </head>
   <body>
+    {{! Heading (Welcome to kalboby) }}
     <div class="row" style="margin-bottom: 25px; margin-top: 25px;">
       <div class="col">
         <h2>Welcome to Kalboby Clinic</h2>
-        <h2>Your pet need us</h2>
 
       </div>
     </div>
+    {{! Table Data }}
     <div class="row">
       <div class="col">
         <table class="table">
@@ -19,7 +20,7 @@
               <th scope="col">#</th>
               <th scope="col">Owner's Name</th>
               <th scope="col">Pets Name</th>
-              {{!-- <th scope="col">Date</th> --}}
+              <th scope="col">Phone</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -28,9 +29,29 @@
               <th scope="row">1</th>
               <td>Mario Nathan</td>
               <td>Vicky</td>
-              {{!-- <td>13-10-21</td> --}}
+              <td>+201207606221</td>
               <td>
-                <button type="button" class="btn btn-warning">
+
+                <div class="dropdown">
+                  <a
+                    class="btn btn-warning"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-ellipsis-v"></i>
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Details</a></li>
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                  </ul>
+                </div>
+
+                {{! <button type="button" class="btn btn-warning">
                   <i class="fas fa-info"></i>
                 </button>
 
@@ -42,8 +63,7 @@
                 <button type="button" class="btn btn-warning">
                   <i class="fas fa-trash-alt"></i>
 
-                </button>
-                
+                </button> }}
 
               </td>
             </tr>
@@ -51,9 +71,27 @@
               <th scope="row">2</th>
               <td>Kerollos Nabil</td>
               <td>Anton</td>
-              {{!-- <td>13-10-21</td> --}}
+              <td>+201207606221</td>
               <td>
-                <button type="button" class="btn btn-warning">
+                <div class="dropdown">
+                  <a
+                    class="btn btn-warning"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-ellipsis-v"></i>
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Details</a></li>
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                  </ul>
+                </div>
+                {{! <button type="button" class="btn btn-warning">
                   <i class="fas fa-info"></i>
                 </button>
                 <button type="button" class="btn btn-warning">
@@ -63,16 +101,34 @@
                 <button type="button" class="btn btn-warning">
                   <i class="fas fa-trash-alt"></i>
 
-                </button>
+                </button> }}
               </td>
             </tr>
             <tr>
               <th scope="row">3</th>
               <td>Andrew Emil</td>
               <td>3atef</td>
-              {{!-- <td>13-10-21</td> --}}
+              <td>+201207606221</td>
               <td>
-                <button type="button" class="btn btn-warning">
+                <div class="dropdown">
+                  <a
+                    class="btn btn-warning"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-ellipsis-v"></i>
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Details</a></li>
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                  </ul>
+                </div>
+                {{! <button type="button" class="btn btn-warning">
                   <i class="fas fa-info"></i>
                 </button>
                 <button type="button" class="btn btn-warning">
@@ -82,7 +138,7 @@
                 <button type="button" class="btn btn-warning">
                   <i class="fas fa-trash-alt"></i>
 
-                </button>
+                </button> }}
               </td>
             </tr>
           </tbody>
