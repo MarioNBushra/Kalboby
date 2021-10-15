@@ -55,7 +55,10 @@ app.get("/client/add", (req, res) => {
 
 
 app.get("/home", async(req, res) => {
-  res.render("home")
+  let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  res.render("home", {
+    pages: pages
+  })
 })
 
 app.get("/kalboby/signin", async (req, res) => {
