@@ -14,7 +14,10 @@
       <div class="col">
         <br />
         <br />
-        <h3>Owner's Data</h3>
+        <h3>
+          Owner's Data
+          <i class="fas fa-user"></i>
+        </h3>
         <br />
       </div>
       <div class="col" >
@@ -102,7 +105,11 @@
     <div class="row">
       <div class="col">
         <br />
-        <h3>Pet Animal Data</h3>
+        <h3>
+          Pet Animal Data
+          <i class="fas fa-paw"></i>
+          <i class="fas fa-dog"></i>
+        </h3>
         <br />
       </div>
     </div>
@@ -280,14 +287,19 @@
 
     <div class="row">
       <div class="col">
-        <label></label>
-        <div class="mb-3">
-          <label
-            for="medication"
-            class="form-label font"
-            style="margin-top: 20px;"
-          >Current medication your pet is taking</label>
-          <textarea class="form-control" id="medication" rows="3" readonly></textarea>
+        
+         <div class="form-floating" style="margin-top: 25px; margin-bottom: 25px;">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="medication"
+            style="height: 100px;"
+            readonly
+          >
+            Panadol Extra
+            Ketofan
+          </textarea>
+          <label for="medication">Medication</label>
         </div>
       </div>
     </div>
@@ -375,13 +387,17 @@
 
     <div class="row" style="margin-top: 20px;">
       <div class="col">
-        <div class="mb-3">
-          <label
-            for="comments"
-            class="form-label font"
-            style="margin-top: 20px;"
-          >Any Comments</label>
-          <textarea class="form-control" id="comments" rows="3" readonly></textarea>
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="comments"
+            style="height: 100px; margin-bottom: 25px;"
+            readonly
+          >
+            Beautiful Dog 
+          </textarea>
+          <label for="comments">Comments</label>
         </div>
       </div>
     </div>
