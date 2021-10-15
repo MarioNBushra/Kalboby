@@ -1,4 +1,5 @@
 console.log("Welcome from Edit");
+
 //catch elements
 const owner = document.getElementById("owner")
 const address = document.getElementById("address")
@@ -27,6 +28,12 @@ const dewormingDate = document.getElementById("dewormingDate")
 const parasiteDate = document.getElementById("parasiteDate")
 const comments = document.getElementById("comments")
 const submitBtn  = document.getElementById("submitBtn")
+const editHandlerBtn = document.getElementById("editHandlerBtn")
+
+
+
+
+
 const editHandler = () => {
     owner.toggleAttribute("readonly")
     address.toggleAttribute("readonly")
@@ -57,7 +64,11 @@ const editHandler = () => {
     parasiteDate.toggleAttribute("readonly")
     comments.toggleAttribute("readonly")
     submitBtn.toggleAttribute("hidden")
-    
+    if(editHandlerBtn.innerHTML === "Open Edition"){
+        editHandlerBtn.innerHTML = "Close Edition"
+    }else{
+        editHandlerBtn.innerHTML = "Open Edition"
+    }
     
 
 }
