@@ -52,6 +52,10 @@ app.get("/client/add", (req, res) => {
 
 });
 
+app.get("/user/edit", async(req, res) => {
+  res.render("details_edit")
+})
+
 
 
 app.get("/home", async(req, res) => {

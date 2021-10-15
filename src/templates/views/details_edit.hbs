@@ -4,19 +4,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/css/style.css" rel="stylesheet" />
+    <script src="/js/edit.js" defer></script>
     <script src="/js/app.js" defer></script>
-    <script src="/js/index.js" defer></script>
-    <title>Kalboby - Add Client</title>
+    <title>Kalboby - Details Client</title>
   </head>
   <body>
-    <br />
+    
     <div class="row">
-
       <div class="col">
         <br />
         <br />
         <h3>Owner's Data</h3>
         <br />
+      </div>
+      <div class="col" >
+          <br />
+          <br />
+          <button type="button" class="btn btn-primary" onclick="editHandler()">Open Edition</button>
+          <br />
       </div>
 
     </div>
@@ -31,6 +36,8 @@
             class="form-control"
             id="owner"
             placeholder="Owner's Name"
+            value="Mario Nathan"
+            readonly
           />
         </div>
       </div>
@@ -44,6 +51,8 @@
             class="form-control"
             id="address"
             placeholder="Address"
+            value="El-Naib St"
+            readonly
           />
         </div>
       </div>
@@ -54,8 +63,8 @@
       <div class="col">
 
         <div class="mb-3">
-          <label for="regDate" class="form-label font">Date (Today)</label>
-          <input type="date" class="form-control" id="regDate" />
+          <label for="regDate" class="form-label font">Date </label>
+          <input type="date" class="form-control" id="regDate" value="2021-10-11" readonly/>
         </div>
       </div>
 
@@ -67,15 +76,19 @@
             class="form-control"
             id="phone"
             placeholder="Phone"
+            value="01207606221"
+            readonly
           />
           <div class="form-check form-switch" >
             <input
               class="form-check-input"
               type="checkbox"
               role="switch"
-              id="flexSwitchCheckDefault"
+              id="whatsapp"
+              checked
+              disabled
             />
-            <label class="form-check-label" for="flexSwitchCheckDefault">Whatsapp</label>
+            <label class="form-check-label" for="whatsapp">Whatsapp</label>
           </div>
         </div>
         
@@ -100,24 +113,28 @@
       <div class="col">
 
         <div class="mb-3">
-          <label for="pets_name" class="form-label font">Pet Name</label>
+          <label for="petsName" class="form-label font">Pet Name</label>
           <input
             type="text"
             class="form-control"
-            id="pets_name"
+            id="petsName"
             placeholder="Pet Name"
+            value="Vicky"
+            readonly
           />
         </div>
       </div>
       {{! Pets Age }}
       <div class="col">
         <div class="mb-3">
-          <label for="age" class="form-label font">Age</label>
+          <label for="petAge" class="form-label font">Pet Age</label>
           <input
             type="text"
             class="form-control"
-            id="age"
+            id="petAge"
             placeholder="Pet Age"
+            value="2Y 6M"
+            readonly
           />
         </div>
       </div>
@@ -125,12 +142,14 @@
       {{! Pets Weight }}
       <div class="col">
         <div class="mb-3">
-          <label for="weight" class="form-label font">Weight</label>
+          <label for="bodyWeight" class="form-label font">Weight</label>
           <input
             type="Number"
             class="form-control"
-            id="weight"
+            id="bodyWeight"
             placeholder="Body Weight (KG)"
+            value="25"
+            readonly
           />
         </div>
       </div>
@@ -140,12 +159,14 @@
       {{! Pets Type }}
       <div class="col">
         <div class="mb-3">
-          <label for="pets_type" class="form-label font">Species</label>
+          <label for="petType" class="form-label font">Species</label>
           <input
             type="text"
             class="form-control"
-            id="pets_type"
+            id="petType"
             placeholder="Pet Species"
+            value="Feline"
+            readonly
           />
         </div>
       </div>
@@ -158,6 +179,8 @@
             class="form-control"
             id="breed"
             placeholder="Pet Breed"
+            value="Gerrifon"
+            readonly
           />
         </div>
       </div>
@@ -170,6 +193,8 @@
             class="form-control"
             id="color"
             placeholder="Pet Color"
+            value="White"
+            readonly
           />
         </div>
       </div>
@@ -182,14 +207,14 @@
           class="form-check"
           style="display: inline-block; margin-right: 10px;"
         >
-          <input class="form-check-input" type="radio" name="sex" id="female" />
+          <input class="form-check-input" type="radio" name="sex" id="female" checked disabled/>
           <label class="form-check-label" for="female">
             Female
           </label>
         </div>
 
         <div class="form-check" style="display: inline-block;">
-          <input class="form-check-input" type="radio" name="sex" id="male" />
+          <input class="form-check-input" type="radio" name="sex" id="male" disabled/>
           <label class="form-check-label" for="male">
             Male
           </label>
@@ -210,6 +235,7 @@
             type="radio"
             name="flexRadioDefault"
             id="yes"
+            disabled
           />
           <label class="form-check-label" for="yes">
             Yes
@@ -226,6 +252,7 @@
             name="flexRadioDefault"
             id="no"
             checked
+            disabled
           />
           <label class="form-check-label" for="no">
             No
@@ -237,7 +264,7 @@
       <div class="col" id="natured_date" style="margin-top: 30px;" hidden>
         <div>
           {{! <label for="date" class="form-label font">Date</label> }}
-          <input type="date" class="form-control" id="date" />
+          <input type="date" class="form-control" id="natDate" readonly/>
         </div>
       </div>
     </div>
@@ -251,7 +278,7 @@
             class="form-label font"
             style="margin-top: 20px;"
           >Current medication your pet is taking</label>
-          <textarea class="form-control" id="medication" rows="3"></textarea>
+          <textarea class="form-control" id="medication" rows="3" readonly></textarea>
         </div>
       </div>
     </div>
@@ -267,6 +294,7 @@
               type="checkbox"
               value=""
               id="rabies"
+              disabled
             />
             <label class="form-check-label font" for="rabies">
               Rabies Vaccine
@@ -279,6 +307,8 @@
               type="checkbox"
               value=""
               id="combined"
+              checked
+              disabled
             />
             <label class="form-check-label font" for="combined">
               Combined Vaccine
@@ -291,6 +321,7 @@
               type="checkbox"
               value=""
               id="deworming"
+              disabled
             />
             <label class="form-check-label font" for="deworming">
               Deworming
@@ -303,6 +334,7 @@
               type="checkbox"
               value=""
               id="parasite"
+              disabled
             />
             <label class="form-check-label font" for="parasite">
               External Parasite
@@ -320,13 +352,14 @@
           class="form-control"
           id="rabiesDate"
           style="margin-top: 15px; min-height: 20px;"
+          readonly
         />
         <br />
-        <input type="date" class="form-control" id="combinedDate" />
+        <input type="date" class="form-control" id="combinedDate" value="2021-09-06" readonly/>
         <br />
-        <input type="date" class="form-control" id="dewormingDate" />
+        <input type="date" class="form-control" id="dewormingDate" readonly/>
         <br />
-        <input type="date" class="form-control" id="parasiteDate" />
+        <input type="date" class="form-control" id="parasiteDate" readonly/>
       </div>
     </div>
     <br />
@@ -335,11 +368,11 @@
       <div class="col">
         <div class="mb-3">
           <label
-            for="medication"
+            for="comments"
             class="form-label font"
             style="margin-top: 20px;"
           >Any Comments</label>
-          <textarea class="form-control" id="medication" rows="3"></textarea>
+          <textarea class="form-control" id="comments" rows="3" readonly></textarea>
         </div>
       </div>
     </div>
@@ -349,8 +382,10 @@
 
         <button
           type="submit"
+          id="submitBtn"
           class="btn btn-primary"
           style="margin: 25px auto; display: flex; justify-content: center; width: 200px;"
+          hidden
         >Submit</button>
       </div>
     </div>
