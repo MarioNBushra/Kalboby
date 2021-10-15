@@ -44,7 +44,7 @@ const editHandler = () => {
     petsName.toggleAttribute("readonly")
     petAge.toggleAttribute("readonly")
     bodyWeight.toggleAttribute("readonly")
-    petType.toggleAttribute("readonly")
+    petType.toggleAttribute("disabled")
     breed.toggleAttribute("readonly")
     color.toggleAttribute("readonly")
     female.toggleAttribute("disabled")

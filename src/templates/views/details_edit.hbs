@@ -158,17 +158,26 @@
     <div class="row row-cols-3">
       {{! Pets Type }}
       <div class="col">
-        <div class="mb-3">
-          <label for="petType" class="form-label font">Species</label>
-          <input
-            type="text"
-            class="form-control"
-            id="petType"
-            placeholder="Pet Species"
-            value="Feline"
-            readonly
-          />
-        </div>
+        <label for="petType" style="margin-bottom: 9px;" class="font">
+          Species
+        </label>
+        <select
+          class="form-select"
+          id="petType"
+          disabled
+        >
+          <option value="">
+            Select Species
+          </option>
+         
+            <option value="" selected>
+              Feline
+            </option>
+            <option>
+              Canine
+            </option>
+          
+        </select>
       </div>
       {{! Breed }}
       <div class="col">
