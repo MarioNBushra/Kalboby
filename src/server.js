@@ -6,17 +6,21 @@ const path = require("path");
 
 const app = express();
 
-const puppeteer = require("puppeteer");
+// const dotenv = require("dotenv")
+
+require("./db/mongoose")
+require("dotenv").config({path: path.join(__dirname, "./dev.env")})
 
 app.use(express.urlencoded({ extended: true }));
 
 
-const port = process.env.PORT || 5050
+
+
+const port = process.env.PORT
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "./public/");
 const viewsPath = path.join(__dirname, "./templates/views");
 
-console.log(publicDirectoryPath);
 
 //Setup static directory to serv
 app.use(express.static(publicDirectoryPath));
@@ -36,43 +40,16 @@ app.engine(
 
 app.use(express.json());
 
-// app.get("/page", (req, res) => {
-//   res.render("page", {
-//     description: "Welcome to My Page",
-//   });
-// });
+
+//require routers
+const mainRouter = require("./routers/main")
 
 
-app.get("/" , async(req, res) => {
-  res.redirect("/kalboby/signin")
-})
-
-app.get("/client/add", (req, res) => {
-  res.render("add_client");
-
-});
-
-app.get("/user/edit", async(req, res) => {
-  res.render("details_edit")
-})
-
-
-
-app.get("/home", async(req, res) => {
-  let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-  res.render("home", {
-    pages: pages
-  })
-})
-
-app.get("/kalboby/signin", async (req, res) => {
-  res.render("signin", {
-    layout: false
-  })
-})
+//useing routers
+app.use(mainRouter)
 
 
 
 app.listen(port, () => {
-  console.log("http://localhost:5050/");
+  console.log("server is up on", port);
 });
