@@ -38,18 +38,9 @@ router.get("/kalboby/signin", async (req, res) => {
   });
 });
 
-//testDB
-router.post("/add/user", async(req, res) => {
-  try {
-    console.log("User SignedUp API");
-    const user = await new User(req.body);
-    const token = await user.generateAuthToken()
-    await user.save();
-    res.status(201).send(["User Added" , user, token ]);
-  } catch (error) {
-    res.status(400).json({"msg": error})
-  }
-})
+
+
+
 
   
 

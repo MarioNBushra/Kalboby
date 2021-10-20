@@ -32,6 +32,8 @@ const editHandlerBtn = document.getElementById("editHandlerBtn")
 
 
 
+document.cookie = "username=John Smith;";
+
 
 
 const editHandler = () => {
@@ -74,3 +76,4 @@ const editHandler = () => {
 }
 
 
+// expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/

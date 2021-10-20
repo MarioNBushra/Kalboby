@@ -42,11 +42,16 @@ app.use(express.json());
 
 
 //require routers
-const mainRouter = require("./routers/main")
+const mainController = require("./routers/main")
+const usersController = require("./routers/admin")
+const patientController = require("./routers/patient")
+
 
 
 //useing routers
-app.use(mainRouter)
+app.use(mainController)
+app.use(usersController)
+app.use(patientController)
 
 
 
