@@ -10,6 +10,9 @@
     
     <title>Kalboby - Sign in</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/login.js" defer></script>
+
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -40,19 +43,19 @@
           <input
             type="email"
             class="form-control"
-            id="floatingInput"
+            id="email"
             placeholder="name@example.com"
           />
-          <label for="floatingInput">Email address</label>
+          <label for="email">Email address</label>
         </div>
         <div class="form-floating">
           <input
             type="password"
             class="form-control"
-            id="floatingPassword"
+            id="password"
             placeholder="Password"
           />
-          <label for="floatingPassword">Password</label>
+          <label for="password">Password</label>
         </div>
 
         {{!-- <div class="checkbox mb-3">
@@ -62,8 +65,8 @@
           </label>
         </div> --}}
 
-        <a href="/home" style="text-decoration: none; color: white">
-            <button class="w-100 btn btn-lg btn-primary" type="button">
+        <a href="#" style="text-decoration: none; color: white">
+            <button class="w-100 btn btn-lg btn-primary" onclick="requestHanndler()" type="button">
                 Sign in
             </button>
         

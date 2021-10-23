@@ -6,6 +6,9 @@ const User = require("../models/user")
 
 const Patients = require("../models/patient")
 
+//require middleware
+const auth = require("../middleware/auth")
+
 
 //home page which redirect to login
 router.get("/", async (req, res) => {
@@ -34,7 +37,7 @@ router.get("/user/details/:id", async (req, res) => {
 
 
 //rendering home page
-router.get("/home", async (req, res) => {
+router.get("/home" ,async (req, res) => {
   const patients = await Patients.find().lean()
   res.render("home", {
     patients: patients

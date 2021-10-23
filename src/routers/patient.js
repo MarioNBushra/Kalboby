@@ -51,11 +51,11 @@ router.post("/patient/edit/:id", async (req, res) => {
 });
 
 //delete specific patient
-router.delete("/patient/delete/:id", async(req, res) => {
+router.post("/patient/delete/:id", async(req, res) => {
     try {
         const _id = req.params.id
         const patient = await Patient.findByIdAndDelete({_id})
-        res.send({msg: "Deleted"})
+        res.send({url: "/home"})
     } catch (error) {
         res.status(400).send({msg: error.message})
     }

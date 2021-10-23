@@ -2,7 +2,7 @@
   <head>
 
     <title>Kalboby - Home</title>
-    {{!-- <script src="/js/home.js" defer></script> --}}
+    <script src="/js/home.js" defer></script>
     
     
     
@@ -86,9 +86,14 @@
                         class="btn btn-primary dropdown-item"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
+                        
                       >Delete</a>
                     </li>
                   </ul>
+                </div>
+
+                <div id="id" hidden>
+                  <span id="spanID">{{this._id}}</span>
                 </div>
 
               </td>
@@ -131,7 +136,7 @@
                   class="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >No</button>
-                <button type="button" class="btn btn-danger">Yes, Delete it</button>
+                <button type="button" class="btn btn-danger" onclick="deleteHandler()">Yes, Delete it</button>
               </div>
             </div>
           </div>
