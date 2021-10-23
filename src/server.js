@@ -58,6 +58,10 @@ app.post("/test", async(req, res) => {
   res.send("ok")
 })
 
+app.get("/youssef", (req, res) => {
+  res.send("Hello Youssef")
+})
+
 
 
 app.listen(port, () => {
