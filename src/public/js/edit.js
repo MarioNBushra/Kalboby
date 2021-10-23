@@ -47,7 +47,9 @@ const getData = () => {
             res.pet_gender === "male" ? male.checked = true : male.checked = false
             
             res.pet_natured  ? yes.checked = true  : no.checked = true
-            res.pet_natured_date != null ? natDate.value = (res.pet_natured_date).split("T")[0] : false
+            res.pet_natured  ? natDate.hidden = false  : natDate.hidden = true
+
+            res.pet_natured_date  ? natDate.value = (res.pet_natured_date).split("T")[0] : false
             rabiesDate.value = (res.pet_vaccination[0].vaccination_date).split("T")[0]
             combinedDate.value = (res.pet_vaccination[1].vaccination_date).split("T")[0]
             dewormingDate.value = (res.pet_vaccination[2].vaccination_date).split("T")[0]
@@ -58,7 +60,7 @@ const getData = () => {
             res.pet_vaccination[2].vaccination_name ? deworming.checked = true : false
             res.pet_vaccination[3].vaccination_name ? parasite.checked = true : false
             
-            console.log();
+            // console.log(natDate.hidden);
             
         },
         error: (e) => {
@@ -183,6 +185,27 @@ const objectHandler = async() => {
         console.log(error);
     }
 }
+
+const checked = () => {
+    console.log("Welcome from fn");
+    if(yes.checked){
+        console.log("Checked");
+        
+        natDate.hidden = false
+        
+        
+    }    
+}
+
+const unChecked = () => {
+    console.log("Welcome from fn");
+    
+    if(no.checked === true){
+        console.log("UNChecked");
+        natDate.hidden = true
+    }
+}
+
 
 
 

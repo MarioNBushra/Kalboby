@@ -18,13 +18,17 @@ const dewormingDatee = document.getElementById("dewormingDate")
 
 
 
-
+// natured_yes.checked ? console.log("yes") : false
+// natured_no.checked ? natured_date.hidden = true : false
 
 const checked = () => {
     console.log("Welcome from fn");
-    if(natured_yes.checked === true){
+    if(natured_yes.checked){
         console.log("Checked");
+        
         natured_date.hidden = false
+        console.log(natured_date.hidden);
+        
     }    
 }
 
@@ -37,3 +41,4 @@ const unChecked = () => {
     }
 }
 
+console.log(natured_date.hidden);
