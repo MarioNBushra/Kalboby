@@ -1,7 +1,5 @@
-console.log("Welcome from Edit");
 
 //catch elements
-const patient_id = document.getElementById("patient_id")
 const owner = document.getElementById("owner")
 const address = document.getElementById("address")
 const regDate = document.getElementById("regDate")
@@ -30,86 +28,7 @@ const parasiteDate = document.getElementById("parasiteDate")
 const comments = document.getElementById("comments")
 const submitBtn  = document.getElementById("submitBtn")
 const editHandlerBtn = document.getElementById("editHandlerBtn")
-
-
-const getData = () => {
-
-    $.ajax({
-        type: "GEt",
-        url: `/patient/read/${patient_id.value}`,
-        // data: JSON.stringify(obj),
-        success: (res) => {
-            console.log("This is response");
-            regDate.value = (res.reg_date).split("T")[0]
-            res.whatsapp ? whatsapp.checked = true : whatsapp.checked = false
-            res.pet_species === "Feline" ? petType.value = "Feline" : petType.value = "Canine"
-            res.pet_gender === "female" ? female.checked = true : female.checked = false
-            res.pet_gender === "male" ? male.checked = true : male.checked = false
-            res.pet_natured  ? yes.checked = true : false
-            res.pet_natured_date != null ? natDate.value = (res.pet_natured_date).split("T")[0] : false
-            rabiesDate.value = (res.pet_vaccination[0].vaccination_date).split("T")[0]
-            combinedDate.value = (res.pet_vaccination[1].vaccination_date).split("T")[0]
-            dewormingDate.value = (res.pet_vaccination[2].vaccination_date).split("T")[0]
-            parasiteDate.value = (res.pet_vaccination[3].vaccination_date).split("T")[0]
-            
-            res.pet_vaccination[0].vaccination_name ? rabies.checked = true : false
-            res.pet_vaccination[1].vaccination_name ? combined.checked = true : false
-            res.pet_vaccination[2].vaccination_name ? deworming.checked = true : false
-            res.pet_vaccination[3].vaccination_name ? parasite.checked = true : false
-            
-            console.log();
-            
-        },
-        error: (e) => {
-            console.log(e);
-        },
-        dataType: "json",
-        contentType: "application/json"
-    })
-}
-getData()
-// document.cookie = "username=John Smith;";
-
-
-
-const editHandler = () => {
-    owner.toggleAttribute("readonly")
-    address.toggleAttribute("readonly")
-    regDate.toggleAttribute("readonly")
-    phone.toggleAttribute("readonly")
-    whatsapp.toggleAttribute("disabled")
-
-    petsName.toggleAttribute("readonly")
-    petAge.toggleAttribute("readonly")
-    bodyWeight.toggleAttribute("readonly")
-    petType.toggleAttribute("disabled")
-    breed.toggleAttribute("readonly")
-    color.toggleAttribute("readonly")
-    female.toggleAttribute("disabled")
-    male.toggleAttribute("disabled")
-    yes.toggleAttribute("disabled")
-    no.toggleAttribute("disabled")
-    natDate.toggleAttribute("readonly")
-    medication.toggleAttribute("readonly")
-    rabies.toggleAttribute("disabled")
-    combined.toggleAttribute("disabled")
-    deworming.toggleAttribute("disabled")
-    parasite.toggleAttribute("disabled")
-
-    rabiesDate.toggleAttribute("readonly")
-    combinedDate.toggleAttribute("readonly")
-    dewormingDate.toggleAttribute("readonly")
-    parasiteDate.toggleAttribute("readonly")
-    comments.toggleAttribute("readonly")
-    submitBtn.toggleAttribute("hidden")
-    if(editHandlerBtn.innerHTML === "Open Edition"){
-        editHandlerBtn.innerHTML = "Close Edition"
-    }else{
-        editHandlerBtn.innerHTML = "Open Edition"
-    }
-    
-
-}
+const alertMessage = document.getElementById("alertMessage")
 
 const objectHandler = async() => {
     
@@ -153,11 +72,11 @@ const objectHandler = async() => {
         yes.checked ? obj.pet_natured = "yes" : false
         no.checked ? obj.pet_natured = "no" : false
         whatsapp.checked ? obj.whatsapp = true : obj.whatsapp = false
-        
+        console.log(obj);
     
         $.ajax({
             type: "POST",
-            url: `/patient/edit/${patient_id.value}`,
+            url: "/patient/add",
             data: JSON.stringify(obj),
             success: () => {
                 console.log("Post Success");
@@ -185,4 +104,4 @@ const objectHandler = async() => {
 
 
 
-// expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/
+

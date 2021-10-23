@@ -6,6 +6,7 @@
     <link href="/css/style.css" rel="stylesheet" />
     <script src="/js/app.js" defer></script>
     <script src="/js/index.js" defer></script>
+    <script src="/js/add_patient.js" defer></script>
     <title>Kalboby - Add Client</title>
   </head>
   <body>
@@ -76,12 +77,9 @@
               class="form-check-input"
               type="checkbox"
               role="switch"
-              id="flexSwitchCheckDefault"
+              id="whatsapp"
             />
-            <label
-              class="form-check-label"
-              for="flexSwitchCheckDefault"
-            >Whatsapp</label>
+            <label class="form-check-label" for="whatsapp">Whatsapp</label>
           </div>
         </div>
 
@@ -109,11 +107,11 @@
       <div class="col">
 
         <div class="mb-3">
-          <label for="pets_name" class="form-label font">Pet Name</label>
+          <label for="petsName" class="form-label font">Pet Name</label>
           <input
             type="text"
             class="form-control"
-            id="pets_name"
+            id="petsName"
             placeholder="Pet Name"
           />
         </div>
@@ -121,11 +119,11 @@
       {{! Pets Age }}
       <div class="col">
         <div class="mp-3">
-          <label for="age" class="form-label font">Age</label>
+          <label for="petAge" class="form-label font">Age</label>
           <input
             type="text"
             class="form-control"
-            id="age"
+            id="petAge"
             placeholder="Pet Age"
           />
 
@@ -135,11 +133,11 @@
       {{! Pets Weight }}
       <div class="col">
         <div class="mb-3">
-          <label for="weight" class="form-label font">Weight</label>
+          <label for="bodyWeight" class="form-label font">Weight</label>
           <input
             type="Number"
             class="form-control"
-            id="weight"
+            id="bodyWeight"
             placeholder="Body Weight (KG)"
           />
         </div>
@@ -149,18 +147,18 @@
     <div class="row row-cols-3">
       {{! Pets Type }}
       <div class="col">
-        <label for="species" style="margin-bottom: 9px;" class="font">
+        <label for="petType" style="margin-bottom: 9px;" class="font">
           Species
         </label>
-        <select class="form-select" id="species">
+        <select class="form-select" id="petType">
           <option value="" selected>
             Select Species
           </option>
 
-          <option value="">
+          <option value="Feline">
             Feline
           </option>
-          <option>
+          <option value="Canine">
             Canine
           </option>
 
@@ -254,15 +252,18 @@
       <div class="col" id="natured_date" style="margin-top: 30px;" hidden>
         <div>
           {{! <label for="date" class="form-label font">Date</label> }}
-          <input type="date" class="form-control" id="date" />
+          <input type="date" class="form-control" id="natDate" />
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        
-        <div class="form-floating" style="margin-top: 25px; margin-bottom: 25px;">
+
+        <div
+          class="form-floating"
+          style="margin-top: 25px; margin-bottom: 25px;"
+        >
           <textarea
             class="form-control"
             placeholder="Leave a comment here"
@@ -276,10 +277,10 @@
 
     <div class="row row-cols-2">
       <div class="col">
-        <h5 >Vaccination</h5>
+        <h5>Vaccination</h5>
         <br />
-        <div >
-          <div class="form-check" style="margin-top: -8px;" >
+        <div>
+          <div class="form-check" style="margin-top: -8px;">
             <input
               class="form-check-input"
               type="checkbox"
@@ -363,16 +364,29 @@
       </div>
     </div>
 
+    <br>
+    <br>
+    <div class="row" >
+      <div class="col">
+        <div class="alert" role="alert" id="alertMessage" hidden>
+          Success, Redirecting to home page.......
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col">
 
         <button
           type="submit"
           class="btn btn-primary"
+          onclick="objectHandler()"
           style="margin: 25px auto; display: flex; justify-content: center; width: 200px;"
         >Submit</button>
       </div>
     </div>
+
+    
 
   </body>
 

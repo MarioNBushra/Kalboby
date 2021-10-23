@@ -4,12 +4,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/css/style.css" rel="stylesheet" />
-    <script src="/js/edit.js" defer></script>
+    
     <script src="/js/app.js" defer></script>
+    
     <title>Kalboby - Details Client</title>
   </head>
   <body>
-    
+    <input type="text" value="{{patient._id}}" id="patient_id" hidden>
     <div class="row">
       <div class="col">
         <br />
@@ -20,11 +21,16 @@
         </h3>
         <br />
       </div>
-      <div class="col" >
-          <br />
-          <br />
-          <button type="button" id="editHandlerBtn" class="btn btn-primary" onclick="editHandler()">Open Edition</button>
-          <br />
+      <div class="col">
+        <br />
+        <br />
+        <button
+          type="button"
+          id="editHandlerBtn"
+          class="btn btn-primary"
+          onclick="editHandler()"
+        >Open Edition</button>
+        <br />
       </div>
 
     </div>
@@ -39,12 +45,12 @@
             class="form-control"
             id="owner"
             placeholder="Owner's Name"
-            value="Mario Nathan"
+            value="{{patient.owner_name}}"
             readonly
           />
         </div>
       </div>
-      
+
       {{! Address }}
       <div class="col">
         <div class="mb-3">
@@ -54,12 +60,12 @@
             class="form-control"
             id="address"
             placeholder="Address"
-            value="El-Naib St"
+            value="{{patient.address}}"
             readonly
           />
         </div>
       </div>
-      
+
     </div>
     <div class="row row-cols-2">
       {{! regData }}
@@ -67,11 +73,17 @@
 
         <div class="mb-3">
           <label for="regDate" class="form-label font">Date </label>
-          <input type="date" class="form-control" id="regDate" value="2021-10-11" readonly/>
+          <input
+            type="date"
+            class="form-control"
+            id="regDate"
+            
+            readonly
+          />
         </div>
       </div>
 
-      <div class="col" >
+      <div class="col">
         <div class="">
           <label for="phone" class="form-label font">Phone</label>
           <input
@@ -79,25 +91,24 @@
             class="form-control"
             id="phone"
             placeholder="Phone"
-            value="01207606221"
+            value="{{patient.phone}}"
             readonly
           />
-          <div class="form-check form-switch" >
+          <div class="form-check form-switch">
             <input
               class="form-check-input"
               type="checkbox"
               role="switch"
               id="whatsapp"
-              checked
+              
               disabled
             />
             <label class="form-check-label" for="whatsapp">Whatsapp</label>
           </div>
         </div>
-        
 
       </div>
-      
+
     </div>
     <hr class="my-4" />
 
@@ -126,7 +137,7 @@
             class="form-control"
             id="petsName"
             placeholder="Pet Name"
-            value="Vicky"
+            value="{{patient.pet_name}}"
             readonly
           />
         </div>
@@ -140,7 +151,7 @@
             class="form-control"
             id="petAge"
             placeholder="Pet Age"
-            value="2Y 6M"
+            value="{{patient.pet_age}}"
             readonly
           />
         </div>
@@ -155,7 +166,7 @@
             class="form-control"
             id="bodyWeight"
             placeholder="Body Weight (KG)"
-            value="25"
+            value="{{patient.pet_weight}}"
             readonly
           />
         </div>
@@ -176,14 +187,14 @@
           <option value="">
             Select Species
           </option>
-         
-            <option value="" selected>
-              Feline
-            </option>
-            <option>
-              Canine
-            </option>
-          
+
+          <option value="Feline">
+            Feline
+          </option>
+          <option value="Canine">
+            Canine
+          </option>
+
         </select>
       </div>
       {{! Breed }}
@@ -195,7 +206,7 @@
             class="form-control"
             id="breed"
             placeholder="Pet Breed"
-            value="Gerrifon"
+            value="{{patient.pet_breed}}"
             readonly
           />
         </div>
@@ -209,7 +220,7 @@
             class="form-control"
             id="color"
             placeholder="Pet Color"
-            value="White"
+            value="{{patient.pet_color}}"
             readonly
           />
         </div>
@@ -223,14 +234,27 @@
           class="form-check"
           style="display: inline-block; margin-right: 10px;"
         >
-          <input class="form-check-input" type="radio" name="sex" id="female" checked disabled/>
+          <input
+            class="form-check-input"
+            type="radio"
+            name="sex"
+            id="female"
+            checked
+            disabled
+          />
           <label class="form-check-label" for="female">
             Female
           </label>
         </div>
 
         <div class="form-check" style="display: inline-block;">
-          <input class="form-check-input" type="radio" name="sex" id="male" disabled/>
+          <input
+            class="form-check-input"
+            type="radio"
+            name="sex"
+            id="male"
+            disabled
+          />
           <label class="form-check-label" for="male">
             Male
           </label>
@@ -267,7 +291,7 @@
             type="radio"
             name="flexRadioDefault"
             id="no"
-            checked
+            
             disabled
           />
           <label class="form-check-label" for="no">
@@ -277,18 +301,21 @@
         </div>
       </div>
 
-      <div class="col" id="natured_date" style="margin-top: 30px;" hidden>
+      <div class="col" id="natured_date" style="margin-top: 30px;" >
         <div>
           {{! <label for="date" class="form-label font">Date</label> }}
-          <input type="date" class="form-control" id="natDate" readonly/>
+          <input type="date" class="form-control" id="natDate" value="{{patient.pet_natured_date}}" readonly />
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        
-         <div class="form-floating" style="margin-top: 25px; margin-bottom: 25px;">
+
+        <div
+          class="form-floating"
+          style="margin-top: 25px; margin-bottom: 25px;"
+        >
           <textarea
             class="form-control"
             placeholder="Leave a comment here"
@@ -296,8 +323,7 @@
             style="height: 100px;"
             readonly
           >
-            Panadol Extra
-            Ketofan
+            {{patient.medication}}
           </textarea>
           <label for="medication">Medication</label>
         </div>
@@ -308,7 +334,7 @@
       <div class="col">
         <h5>Vaccination</h5>
         <br />
-        <div >
+        <div>
           <div class="form-check" style="margin-top: -8px;">
             <input
               class="form-check-input"
@@ -328,7 +354,7 @@
               type="checkbox"
               value=""
               id="combined"
-              checked
+              
               disabled
             />
             <label class="form-check-label font" for="combined">
@@ -376,11 +402,17 @@
           readonly
         />
         <br />
-        <input type="date" class="form-control" id="combinedDate" value="2021-09-06" readonly/>
+        <input
+          type="date"
+          class="form-control"
+          id="combinedDate"
+          value="2021-09-06"
+          readonly
+        />
         <br />
-        <input type="date" class="form-control" id="dewormingDate" readonly/>
+        <input type="date" class="form-control" id="dewormingDate" readonly />
         <br />
-        <input type="date" class="form-control" id="parasiteDate" readonly/>
+        <input type="date" class="form-control" id="parasiteDate" readonly />
       </div>
     </div>
     <br />
@@ -395,9 +427,17 @@
             style="height: 100px; margin-bottom: 25px;"
             readonly
           >
-            Beautiful Dog 
+            {{patient.comments}}
           </textarea>
           <label for="comments">Comments</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" >
+      <div class="col">
+        <div class="alert" role="alert" id="alertMessage" hidden>
+          Success, Redirecting to home page.......
         </div>
       </div>
     </div>
@@ -410,11 +450,12 @@
           id="submitBtn"
           class="btn btn-primary"
           style="margin: 25px auto; display: flex; justify-content: center; width: 200px;"
+          onclick="objectHandler()"
           hidden
         >Submit</button>
       </div>
     </div>
-
+    <script src="/js/edit.js"></script>
   </body>
 
 </html>

@@ -13,8 +13,14 @@ const patientSchema = new mongoose.Schema(
         type: String,
         trim: true
     },
+    reg_date: {
+        type: Date
+    },
     phone: {
         type: Number,
+    },
+    whatsapp: {
+        type: Boolean
     },
     pet_name: {
         type: String,
@@ -47,10 +53,16 @@ const patientSchema = new mongoose.Schema(
         type: Boolean,
         required: true
     },
+    pet_natured_date: {
+        type: Date
+    },
     pet_vaccination: {
         type: Array
     },
     comments: {
+        type: String
+    },
+    medication: {
         type: String
     }
 

@@ -4,7 +4,6 @@ console.log("Welcome to script");
 const natured_yes = document.getElementById("yes")
 const natured_no = document.getElementById("no")
 const natured_date = document.getElementById("natured_date")
-let regDatee = document.getElementById("regDate")
 
 //vaccine
 const rabiesCheck = document.getElementById("rabies") 

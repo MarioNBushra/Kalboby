@@ -4,6 +4,8 @@ const router = new express.Router();
 
 const User = require("../models/user")
 
+const Patients = require("../models/patient")
+
 
 //home page which redirect to login
 router.get("/", async (req, res) => {
@@ -17,16 +19,25 @@ router.get("/client/add", (req, res) => {
 });
 
 // rendering edition page 
-router.get("/user/edit", async (req, res) => {
-  res.render("details_edit");
+router.get("/user/details/:id", async (req, res) => {
+  try {
+    const patient = await Patients.findById(req.params.id).lean()
+    
+    res.render("details_edit", {
+      patient: patient
+    });
+  } catch (error) {
+    
+  }
+  
 });
 
 
 //rendering home page
 router.get("/home", async (req, res) => {
-  let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+  const patients = await Patients.find().lean()
   res.render("home", {
-    pages: pages,
+    patients: patients
   });
 });
 

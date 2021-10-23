@@ -2,9 +2,11 @@ const express = require("express");
 const Patient = require("../models/patient");
 
 const router = new express.Router();
+
 //insert patient
 router.post("/patient/add", async (req, res) => {
   try {
+    console.log(req.body);
     // const obj = {
     //     owner_name: req.body.owner_name,
     //     address: req.body.address,
@@ -34,27 +36,11 @@ router.post("/patient/add", async (req, res) => {
 });
 
 //edit specific patient
-router.patch("/patient/edit/:id", async (req, res) => {
+router.post("/patient/edit/:id", async (req, res) => {
   try {
-    // const updates = Object.keys(req.body);
-    // const allowedUpdates = ["description", "completed"];
-    // const isValidOperation = updates.every((update) => {
-    //   return allowedUpdates.includes(update);
-    // });
-    // if (!isValidOperation) {
-    //   return res.status(400).send({ error: "Invalid updates" });
-    // }
+    
     _id = req.params.id;
-    // const patient = await Patient.findOne({_id});
-    // if (!patient) {
-    //   res.status(404).send("Not patient");
-    // }
-    // updates.forEach((update) => {
-    //   patient[update] = req.body[update];
-    // });
-    // await patient.save();
-
-    // res.send(task);
+    
     const patient = await Patient.findByIdAndUpdate({_id}, req.body)
     await patient.save()
     res.send(patient)
@@ -75,7 +61,7 @@ router.delete("/patient/delete/:id", async(req, res) => {
     }
 })
 
-//read all patient
+//read all patient WITHOUT PAGINATION
 router.get("/patient/read", async (req, res) => {
   try {
     const patients = await Patient.find();
