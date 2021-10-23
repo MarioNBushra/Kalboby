@@ -24,7 +24,7 @@ const checked = () => {
     console.log("Welcome from fn");
     if(natured_yes.checked === true){
         console.log("Checked");
-        natured_date.removeAttribute("hidden")
+        natured_date.hidden = false
     }    
 }
 
