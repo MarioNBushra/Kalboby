@@ -6,6 +6,8 @@ const path = require("path");
 
 const app = express();
 
+const cookieParser = require('cookie-parser')
+
 // const dotenv = require("dotenv")
 
 require("./db/mongoose")
@@ -13,7 +15,7 @@ require("dotenv").config({path: path.join(__dirname, "./dev.env")})
 
 app.use(express.urlencoded({ extended: true }));
 
-
+app.use(cookieParser());
 
 
 const port = process.env.PORT
@@ -41,6 +43,7 @@ app.engine(
 app.use(express.json());
 
 
+
 //require routers
 const mainController = require("./routers/main")
 const usersController = require("./routers/admin")
@@ -54,13 +57,19 @@ app.use(usersController)
 app.use(patientController)
 
 app.post("/test", async(req, res) => {
+  
   console.log(req.body);
   res.send("ok")
 })
 
-app.get("/youssef", (req, res) => {
-  res.send("Hello Youssef")
+
+app.post("/setCookie", (req, res) => {
+  res.cookie("name", "mario")
+  res.redirect("/home")
 })
+
+
+
 
 
 

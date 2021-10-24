@@ -17,12 +17,12 @@ router.get("/", async (req, res) => {
 
 
 //add client page
-router.get("/client/add", (req, res) => {
+router.get("/client/add", auth, (req, res) => {
   res.render("add_client");
 });
 
 // rendering edition page 
-router.get("/user/details/:id", async (req, res) => {
+router.get("/user/details/:id", auth, async (req, res) => {
   try {
     const patient = await Patients.findById(req.params.id).lean()
     
@@ -37,7 +37,8 @@ router.get("/user/details/:id", async (req, res) => {
 
 
 //rendering home page
-router.get("/home" ,async (req, res) => {
+router.get("/home" , auth, async (req, res) => {
+  
   const patients = await Patients.find().lean()
   res.render("home", {
     patients: patients

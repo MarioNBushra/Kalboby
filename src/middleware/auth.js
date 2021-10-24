@@ -5,13 +5,13 @@ const User = require('../models/user')
 const auth = async (req, res, next) => {
     try {
         // const token = req.header('Authorization').replace('Bearer ', '')//Bearer is not important we can type any word 
-        const token = document.cookie
-        console.log(token);
+        const token = req.cookies.tokenAuth
+        
         const decoded = jwt.verify(token, "MarioBushra")
         const user = await User.findOne({_id: decoded._id, 'tokens.token': token})
         
         if(!user){
-            throw new Error('Errror')
+            throw new Error('Not User')
         }
 
         req.token = token
@@ -19,7 +19,7 @@ const auth = async (req, res, next) => {
         
         next()
     } catch (e) {
-        res.status(401).send({error: 'Please Authonticate'})
+        res.status(401).redirect("/")
         
     }
 }

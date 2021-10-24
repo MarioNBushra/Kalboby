@@ -22,9 +22,12 @@ router.post("/dashboard/admin/kalboby/signup", async(req, res) => {
 //userLogin
 router.post("/dashboard/admin/kalboby/login", async(req, res) => {
     try {
+        console.log(req.body);
         const user = await User.findByCredentials(req.body.user_name, req.body.password)
         const token = await user.generateAuthToken()
-        res.send({token: token})
+        
+        res.cookie("tokenAuth", token)
+        res.json({url: "/home"})
     } catch (error) {
         res.status(400).send({msg: error.message})
         console.dir(error);

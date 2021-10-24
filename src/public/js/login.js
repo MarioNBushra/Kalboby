@@ -15,7 +15,8 @@ const requestHanndler = () => {
         data: JSON.stringify(obj),
         success: (res) => {
             console.log(res);
-            document.cookie = res.token
+            // document.cookie = res.token
+            window.location.href = res.url
             
             
         },

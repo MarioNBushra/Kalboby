@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 // const Task = require('./task')
 const crypto = require('crypto')
+const exp = require('constants')
 
 const userSchema = new mongoose.Schema({
     user_name: {
@@ -72,7 +73,7 @@ userSchema.methods.toJSON = function(){
 
 userSchema.methods.generateAuthToken = async function(){
     const user = this
-    const token = jwt.sign({_id: user._id.toString()}, "MarioBushra")
+    const token = jwt.sign({_id: user._id.toString()}, "MarioBushra", {expiresIn: "1h"} )
     user.tokens = user.tokens.concat(({token}))
     await user.save()
     return token
