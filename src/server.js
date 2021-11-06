@@ -42,7 +42,25 @@ app.engine(
 
 app.use(express.json());
 
+//////////////////////// S T A R T - C O R S ////////////////////////
+const cors = require("cors")
+const corsOpts = {
+  origin: '*',
 
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
+
+
+//////////////////////// E N D - C O R S ////////////////////////
 
 //require routers
 const mainController = require("./routers/main")
