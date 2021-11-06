@@ -44,20 +44,20 @@ app.use(express.json());
 
 //////////////////////// S T A R T - C O R S ////////////////////////
 const cors = require("cors")
-const corsOpts = {
-  origin: '*',
+// const corsOpts = {
+//   origin: '*',
 
-  methods: [
-    'GET',
-    'POST',
-  ],
+//   methods: [
+//     'GET',
+//     'POST',
+//   ],
 
-  allowedHeaders: [
-    'Content-Type',
-  ],
-};
+//   allowedHeaders: [
+//     'Content-Type',
+//   ],
+// };
 
-app.use(cors(corsOpts));
+app.use(cors());
 
 
 //////////////////////// E N D - C O R S ////////////////////////
