@@ -1,6 +1,6 @@
 const express = require("express");
 
-const hbs = require("express-handlebars");
+const {engine} = require("express-handlebars");
 
 const path = require("path");
 
@@ -27,13 +27,16 @@ const viewsPath = path.join(__dirname, "./templates/views");
 //Setup static directory to serv
 app.use(express.static(publicDirectoryPath));
 
+
+
+
 //Setup handlebars engine and views location
 app.set("view engine", "hbs"); // Setup hbs engine
 app.set("views", viewsPath); // Setup views location
 
 app.engine(
   "hbs",
-  hbs({
+  engine({
     extname: "hbs",
     defaultLayout: "main",
     layoutsDir: __dirname + "/templates/layouts/",
@@ -61,6 +64,8 @@ app.use(cors());
 
 
 //////////////////////// E N D - C O R S ////////////////////////
+
+////////////////////////TT EE SS TT////////////////////////
 
 //require routers
 const mainController = require("./routers/main")

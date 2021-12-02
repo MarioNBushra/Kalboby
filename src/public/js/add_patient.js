@@ -63,6 +63,7 @@ const objectHandler = async() => {
     
             ]
         }
+        
         rabies.checked ? obj.pet_vaccination[0].vaccination_name = "Rabies Vaccine" : false
         combined.checked ? obj.pet_vaccination[1].vaccination_name = "Coimbined Vaccine" : false
         deworming.checked ? obj.pet_vaccination[2].vaccination_name = "Deworming Vaccine" : false

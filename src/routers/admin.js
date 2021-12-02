@@ -4,6 +4,8 @@ const User = require("../models/user")
 
 const router = new express.Router();
 
+const auth = require("../middleware/auth")
+
 
 //User Signup
 router.post("/dashboard/admin/kalboby/signup", async(req, res) => {
@@ -41,6 +43,25 @@ router.get("/dashboard/admin/kalboby/users", async(req, res) => {
         res.send(users)
     } catch (error) {
         res.status(400).send({msg: error})
+    }
+})
+
+//Logout
+router.get('/dashboard/admin/logout', auth ,async (req, res) => {
+    try{
+        console.log("Hello From Logout API");
+        const user = req.user
+        console.log(user);
+        user.tokens = user.tokens.filter((token) => {
+            return token.token !== req.token
+        })
+
+        
+        await user.save()
+
+        res.redirect("/kalboby/signin")
+    }catch(e){
+        res.status(400).send({error: 'Error 400'})
     }
 })
 
