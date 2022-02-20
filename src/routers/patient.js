@@ -7,26 +7,6 @@ const router = new express.Router();
 router.post("/patient/add", async (req, res) => {
   try {
     console.log(req.body);
-    // const obj = {
-    //     owner_name: req.body.owner_name,
-    //     address: req.body.address,
-    //     phone: req.body.phone,
-    //     pet_name: req.body.pet_name,
-    //     pet_age: req.body.pet_age,
-    //     pet_weight: req.body.pet_weight,
-    //     pet_species: req.body.pet_species,
-    //     pet_breed: req.body.pet_breed,
-    //     pet_color: req.body.pet_color,
-    //     pet_gender: req.body.pet_gender,
-    //     pet_natured: req.body.pet_natured,
-    //     pet_vaccination: [
-    //         {
-    //             "vaccination_name": req.body.pet_vaccination[0].vaccination_name,
-    //             "vaccination_date": req.body.pet_vaccination[0].vaccination_date
-    //         }
-    //     ],
-    //     comments: req.body.comments,
-    // }
     const newPatient = new Patient(req.body);
     await newPatient.save();
     res.send(newPatient);

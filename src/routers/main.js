@@ -53,6 +53,18 @@ router.get("/kalboby/signin", async (req, res) => {
   });
 });
 
+//rendering add product page
+router.get("/product/add", async(request, res) => {
+  try {
+    console.log(request)
+    res.render("add_product", {
+      title: "Add Product",
+      name: "Youssef"
+    })
+  } catch (error) {
+    res.status(400).send({"msg": error.message})
+  }
+})
 
 
 
