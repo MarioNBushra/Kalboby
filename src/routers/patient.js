@@ -64,13 +64,6 @@ router.post("/patient/read", async (req, res) => {
       : false;
 
     if (patientSearch != false || patientSearch.length === 0) {
-      // const dbQuerySearch = req.query.db;
-      // const countSearch = await Patient.count({
-      //   $or: [
-      //     { englishName: new RegExp(searchText, "gi") },
-      //     { arabicName: new RegExp(searchText, "gi") },
-      //   ],
-      // });
       return res.send(patientSearch);
     }
     const patients = await Patient.find();
