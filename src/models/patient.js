@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-
 const patientSchema = new mongoose.Schema(
   {
     owner_name: {
@@ -10,68 +9,66 @@ const patientSchema = new mongoose.Schema(
       trim: true, // trim in mongoose use to remove the white spaces from the strings
     },
     address: {
-        type: String,
-        trim: true
+      type: String,
+      trim: true,
     },
     reg_date: {
-        type: Date
+      type: Date,
     },
     phone: {
-        type: Number,
+      type: Number,
     },
     whatsapp: {
-        type: Boolean
+      type: Boolean,
     },
     pet_name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     pet_age: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true,
     },
     pet_weight: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true,
     },
     pet_species: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     pet_breed: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     pet_color: {
-        type: String
+      type: String,
     },
     pet_gender: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     pet_natured: {
-        type: Boolean,
-        required: true
+      type: Boolean,
+      required: true,
     },
     pet_natured_date: {
-        type: Date
+      type: Date,
     },
     pet_vaccination: {
-        type: Array
+      type: Array,
     },
     comments: {
-        type: String
+      type: String,
     },
     medication: {
-        type: String
-    }
-
+      type: String,
+    },
   },
   { timestamps: true }
 );
 
-
-
+patientSchema.index({ owner_name: "text" }, { pet_name: "text" });
 
 const User = mongoose.model("Patient", patientSchema);
 
